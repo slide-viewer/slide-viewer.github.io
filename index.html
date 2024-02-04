@@ -12,27 +12,42 @@
             font-family: sans-serif;
         }
 
+        main {
+            max-width: 800px;
+            margin: 0 auto
+        }
+
         slide-viewer::part(slides) {
             border: 2px solid black;
         }
 
         slide-viewer::part(button) {
-            opacity: 0;
+            opacity: .2;
         }
 
         slide-viewer:hover::part(button) {
-            opacity: .3;
+            opacity: .7;
+        }
+
+        img {
+            mix-blend-mode: screen;
         }
     </style>
 </head>
 
 <body>
-    <h1>&lt;slide-viewer&gt; Web Component</h1>
-    <div class="demo-carousel slide-viewer">
-        <slide-viewer loop noscrollbar play="1400">
+    <main>
+        <h1>&lt;slide-viewer&gt; Web Component</h1>
+        <p>
+            <a href="https://github.com/slide-viewer/slide-viewer.github.io">source</a>
+        </p>
+        <slide-viewer noscrollbar play="1400">
             <lorem-slides></lorem-slides>
         </slide-viewer>
-    </div>
+        <p>
+            attributes: <code>noscrollbar</code>, <code>play</code>
+        </p>
+        </main>
 </body>
 
 </html>

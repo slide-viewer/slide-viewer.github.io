@@ -49,7 +49,8 @@ customElements.define("slide-viewer", class extends HTMLElement {
         this.attachShadow({ mode: "open" }).append(
             createElement("style", {
                 innerHTML:
-                    ":host{position:relative;display:block;--dotwidth:2em}" +
+                    ":host{position:relative;display:block}" +
+                    ":host{--dotwidth:15px;--buttonwidth:2em}" +
                     ":host([hold]) #slides{cursor:grab}" +
                     ":host([scrollbar]) #slides{overflow-x:scroll}" +
                     "::slotted(*){display:block;min-width:100%;scroll-snap-align:start}" +
@@ -59,11 +60,11 @@ customElements.define("slide-viewer", class extends HTMLElement {
                     "scroll-snap-type:x mandatory;scroll-behavior:smooth}" +
                     //button
                     "button:hover{opacity:.7}" +
-                    "button{position:absolute;top:50%;width:10%;height:20%;transform:translateY(-50%);" +
-                    "font-size:3em;border-radius:25%;" +
+                    "button{position:absolute;top:50%;width:var(--buttonwidth);height:var(--buttonwidth);transform:translateY(-50%);" +
+                    "font-size:2em;border-radius:50%;" +
                     "opacity:.2;color:grey;border:none;cursor:pointer;z-index:2}" +
                     //output
-                    "output{position:absolute;bottom:0;width:100%;" +
+                    "output{position:absolute;bottom:0;width:100%;color:beige;" +
                     "background:none;text-align:center;padding-bottom:1em;font-size:2em}" +
                     //dots
                     "#dots{display:flex;justify-content:center;gap:1em;position:absolute;bottom:0;width:100%;height:var(--dotwidth);margin-bottom:.4em}" +
