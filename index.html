@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>&lt;slide-viewer&gt; Web Component</title>
+    <script src="element.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        slide-viewer::part(slides) {
+            border: 2px solid black;
+        }
+
+        slide-viewer::part(button) {
+            opacity: 0;
+        }
+
+        slide-viewer:hover::part(button) {
+            opacity: .3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>&lt;slide-viewer&gt; Web Component</h1>
+    <div class="demo-carousel slide-viewer">
+        <slide-viewer loop noscrollbar play="1400">
+            <lorem-slides></lorem-slides>
+        </slide-viewer>
+    </div>
+</body>
+
+</html>
