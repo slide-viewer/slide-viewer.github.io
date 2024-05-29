@@ -1,10 +1,6 @@
-# https://slide-viewer.github.io
+# Demo: https://slide-viewer.github.io
 
 Inspired by: https://zachleat.github.io/carouscroll/
-
-## Features
-
-* ...
 
 ## Usage
 

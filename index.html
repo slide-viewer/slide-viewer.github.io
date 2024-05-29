@@ -4,9 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Web Components diplays sequential slides in a carousel">
     <title>&lt;slide-viewer&gt; Web Component</title>
+    <script type="module" src="https://web-component-docs.github.io/elements.js"></script>
+    
+    <!-- load main <slide-viewer> Web Component -->
+    <!-- <script src="https://slide-viewer.github.io/element.js"></script> -->
     <script src="element.js"></script>
+
     <style>
         body {
             font-family: sans-serif;
@@ -17,20 +22,24 @@
             margin: 0 auto
         }
 
-        slide-viewer::part(slides) {
+        slide-viewer {
+            /* default values */
+            --dotwidth: 15px;
+            --dotbackground: beige;
+            --dotopacity: 0.8;
+            --dotcurrent: white;
+            --dotselect: beige;
+            /* height: 200px; */
+        }
+
+        slide-viewer {
             border: 2px solid black;
-        }
-
-        slide-viewer::part(button) {
-            opacity: .2;
-        }
-
-        slide-viewer:hover::part(button) {
-            opacity: .7;
-        }
-
-        img {
-            mix-blend-mode: screen;
+            /* custom values */
+            --dotwidth: 15px;
+            /* --dotbackground: black; */
+            --dotopacity: 0.8;
+            --dotcurrent: white;
+            --dotselect: beige;
         }
     </style>
 </head>
@@ -39,14 +48,30 @@
     <main>
         <h1>&lt;slide-viewer&gt; Web Component</h1>
         <p>
-            <a href="https://github.com/slide-viewer/slide-viewer.github.io">source</a>
+            <a href="https://github.com/slide-viewer/slide-viewer.github.io">GitHub source</a>
         </p>
-        <slide-viewer noscrollbar play="1400">
+        <p>
+            Displays a series of slides with optional prev/next buttons, slide indicator and a scrollbar. The slides can
+            be images or any HTML content. NOT using CSS animations, scrollspeed is the standard browser scrollspeed
+        </p>
+        <slide-viewer no-button no-scrollbar loop play="2000" dots="0">
             <lorem-slides></lorem-slides>
         </slide-viewer>
-        <p>
-            attributes: <code>noscrollbar</code>, <code>play</code>
-        </p>
+        <!-- <slide-viewer id="divs" noreverse scrollbar loop play="800" dot1s="0">
+                                                            <div>21</div>
+                                                            <div>22</div>
+                                                            <div>23</div>
+                                                            <div>24</div>
+                                                        </slide-viewer> -->
+        <web-component-attributes component="slide-viewer">
+            play=1000 | Auto play every 1000ms | 3000
+            nobutton | Hides the prev/next buttons
+            scrollbar | Shows the scrollbar | noscrollbar
+            dots=0 | sets dot size in pixels | 15
+            rtl | Right to left start at the last slide
+            noreverse | No reverse loop
+            hold | cursor holds current image | automatic
+        </web-component-attributes>
         </main>
 </body>
 
